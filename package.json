@@ -1,0 +1,26 @@
+{
+  "name": "nfty-portal-template",
+  "version": "1.0.0",
+  "description": "Master template library for NFTY portals",
+  "main": "src/index.ts",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "classnames": "^2.3.2",
+    "react": "^18.2.0",
+    "react-data-table-component": "^7.5.3",
+    "react-dom": "^18.2.0",
+    "react-feather": "^2.0.10",
+    "reactstrap": "^9.1.6",
+    "styled-components": "^5.3.9",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
