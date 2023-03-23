@@ -16,6 +16,7 @@ export interface CustomDataTableColumns<T = Record<string, Primitive>>
   id: string;
   cellValuePayload?: (row: T) => string | number;
   cellClassName?: string;
+  cell?: (row: T) => JSX.Element;
 }
 
 export const createDataTable = <T = Record<string, Primitive>,>(

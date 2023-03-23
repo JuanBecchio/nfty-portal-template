@@ -1,8 +1,7 @@
 import React from "react";
-import { useNFTYTemplate } from "../contexts/NFTYTemplateContext";
+import { TEMPLATE_DEFAULT_CONFIG } from "../contexts/NFTYTemplateContext";
 
 const BrandLogo: React.FC = () => {
-  const { brandLogoImage } = useNFTYTemplate();
   return (
     <a
       href="/"
@@ -15,7 +14,7 @@ const BrandLogo: React.FC = () => {
       }}
     >
       <img
-        src={brandLogoImage}
+        src={TEMPLATE_DEFAULT_CONFIG.appLogoImage}
         style={{ aspectRatio: 1, width: "100%", margin: "10%" }}
       />
     </a>

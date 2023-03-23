@@ -4,8 +4,9 @@ import { Navbar } from "reactstrap";
 import Footer from "./Footer";
 import ScrollTopArrow from "./ScrollTopArrow";
 import NavbarMenuButton from "./UserNavbar/NavbarMenuButton";
-import NavbarUser from "./UserNavbar/NavbarUser";
 import BrandLogo from "./BrandLogo";
+import UserDropdown, { DropdownUserType } from "./UserNavbar/UserDropdown";
+import { TEMPLATE_DEFAULT_CONFIG } from "../contexts/NFTYTemplateContext";
 
 type Route = {
   id: string;
@@ -60,7 +61,8 @@ const NavbarWrapper: React.FC<{
   > | null;
   sideRoutes: Route[];
   sidebarLinkItem: React.FC<LinkItemProps>;
-}> = ({ pageRoutes, sideRoutes, sidebarLinkItem }) => {
+  user: DropdownUserType;
+}> = ({ pageRoutes, sideRoutes, sidebarLinkItem, user }) => {
   const [menuVisibility, setMenuVisibility] = useState(false);
   return (
     <div
@@ -80,7 +82,10 @@ const NavbarWrapper: React.FC<{
           <NavbarMenuButton
             setMenuVisibility={(value) => setMenuVisibility(value)}
           />
-          <NavbarUser />
+          <UserDropdown
+            user={user}
+            portalName={TEMPLATE_DEFAULT_CONFIG.appPortal}
+          />
         </div>
       </Navbar>
       <div

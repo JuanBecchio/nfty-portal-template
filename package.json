@@ -1,7 +1,7 @@
 {
-  "name": "nfty-portal-template",
+  "name": "solar-portal",
   "version": "1.0.0",
-  "description": "Master template library for NFTY portals",
+  "description": "Master template library for NFTYSolar portals",
   "main": "src/index.ts",
   "dependencies": {
     "bootstrap": "^5.2.3",

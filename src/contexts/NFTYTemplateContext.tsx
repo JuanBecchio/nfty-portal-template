@@ -1,20 +1,46 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../@core/scss/core.scss";
 
-export const NFTYTemplateContext = React.createContext<{
-  brandLogoImage?: string;
-}>({ brandLogoImage: undefined });
+type TemplateConfigValues = {
+  appFirstName: string;
+  appLastName: string;
+  appSlug: string;
+  appPortal: string;
+  appLogoImage: string;
+  appLocalStorageKey: string;
+};
+
+type TemplateContext = {
+  config: TemplateConfigValues;
+};
+
+export let TEMPLATE_DEFAULT_CONFIG = {
+  appFirstName: "UI",
+  appLastName: "Template",
+  appSlug: "Slug",
+  appPortal: "Portal",
+  appLogoImage: "",
+  appLocalStorageKey: "NFTYPortalTemplate",
+};
+
+export const NFTYTemplateContext = React.createContext<TemplateContext>({
+  config: TEMPLATE_DEFAULT_CONFIG,
+});
 
 export const useNFTYTemplate = () => useContext(NFTYTemplateContext);
 
 const NFTYTemplateProvider: React.FC<{
-  initialValues?: { brandLogoImage?: string };
+  config?: TemplateConfigValues;
   children: React.ReactElement;
-}> = ({ initialValues, children }) => {
+}> = ({ config = TEMPLATE_DEFAULT_CONFIG, children }) => {
+  const value = useMemo(() => {
+    TEMPLATE_DEFAULT_CONFIG = config;
+    return { config };
+  }, [config]);
   return (
-    <NFTYTemplateContext.Provider value={initialValues || {}}>
+    <NFTYTemplateContext.Provider value={value}>
       {children}
     </NFTYTemplateContext.Provider>
   );
